@@ -18,6 +18,10 @@ public class Address {
     @Column(name = "postal_code")
     private String postalCode;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
 
     public Long getId() {
         return id;
@@ -41,5 +45,9 @@ public class Address {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }
