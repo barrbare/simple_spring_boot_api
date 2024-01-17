@@ -4,11 +4,13 @@ import ge.ibsu.demo.entities.City;
 import ge.ibsu.demo.repositories.CityRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CityService {
     private final CityRepository cityRepository;
 

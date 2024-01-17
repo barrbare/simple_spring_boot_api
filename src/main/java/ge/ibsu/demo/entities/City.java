@@ -7,11 +7,13 @@ import jakarta.persistence.*;
 public class City {
     @Id
     @SequenceGenerator(name = "city_city_id_seq", sequenceName = "city_city_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_customer_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_city_id_seq")
     @Column(name = "city_id")
     private Long id;
     @Column(name = "city")
     private String city;
+    @Column(name = "country_id")
+    private Long countryId;
 
     public Long getId() { return id; }
 
@@ -20,4 +22,8 @@ public class City {
     public String getCity() { return city; }
 
     public void setCity(String city) {this.city = city;}
+
+    public Long getCountryId() {return countryId;}
+
+    public void setCountryId(Long countryId) {this.countryId = countryId;}
 }
