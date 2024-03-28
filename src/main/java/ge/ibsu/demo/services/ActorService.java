@@ -15,6 +15,6 @@ public class ActorService {
     }
 
     public List<SearchActor> getAllActorNames() {
-        return actorRepository.findAllActorsNames();
+        return  actorRepository.findAllActorsNames();
     }
 }
