@@ -19,5 +19,5 @@ public class AddAddress {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
-    }
-}
+    } 
+} 
