@@ -1,6 +1,6 @@
 package ge.ibsu.demo.services;
 import ge.ibsu.demo.dto.AddCustomer;
-import ge.ibsu.demo.dto.CustomerInfo;
+import ge.ibsu.demo.dto.CustomerAddressInfo;
 import ge.ibsu.demo.dto.Paging;
 import ge.ibsu.demo.dto.SearchCustomer;
 import ge.ibsu.demo.entities.Address;
@@ -68,8 +68,9 @@ public class CustomerService {
         String searchText = searchCustomer.getSearchText() != null ? "%" + searchCustomer.getSearchText() + "%" : "";
         return customerRepository.searchWithNative(searchCustomer.getActive(), searchText);
     }
-    public Page<CustomerInfo> findCustomer(Paging paging){
+    public Page<CustomerAddressInfo> searchAddressInfo(SearchCustomer searchCustomer, Paging paging){
+        String searchText = searchCustomer.getSearchText() != null ? "%" + searchCustomer.getSearchText() + "%" : "";
         Pageable pageable = PageRequest.of(paging.getPage() - 1, paging.getSize(), Sort.by("id").descending());
-        return  customerRepository.findCustomer(pageable);
+        return  customerRepository.searchAddressInfo(searchCustomer.getActive(), searchText,  pageable);
     }
 }

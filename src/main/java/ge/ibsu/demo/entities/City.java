@@ -14,6 +14,17 @@ public class City {
     private String city;
     @Column(name = "country_id")
     private Long countryId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COUNTRY_ID")
+    private Country country;
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
     public Long getId() { return id; }
 

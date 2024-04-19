@@ -1,7 +1,7 @@
 package ge.ibsu.demo.controllers;
 
 import ge.ibsu.demo.dto.AddCustomer;
-import ge.ibsu.demo.dto.CustomerInfo;
+import ge.ibsu.demo.dto.CustomerAddressInfo;
 import ge.ibsu.demo.dto.RequestData;
 import ge.ibsu.demo.dto.SearchCustomer;
 import ge.ibsu.demo.entities.Customer;
@@ -59,8 +59,9 @@ public class CustomerController {
         GeneralUtil.checkRequiredProperties(searchCustomer, Arrays.asList("active", "searchText"));
         return customerService.search(searchCustomer);
     }
-    @RequestMapping(value = "/getCustomerInfo", method = RequestMethod.POST, produces = {"application/json"})
-    public Page<CustomerInfo> findCustomer(@RequestBody RequestData rd) throws Exception {
-        return customerService.findCustomer(rd.getPaging());
+    @RequestMapping(value = "/searchAddress", method = RequestMethod.POST, produces = {"application/json"})
+    public Page<CustomerAddressInfo> searchAddressInfo(@RequestBody RequestData<SearchCustomer> rd) throws Exception {
+        GeneralUtil.checkRequiredProperties(rd.getData(), Arrays.asList("active", "searchText"));
+        return customerService.searchAddressInfo(rd.getData(), rd.getPaging());
     }
 }

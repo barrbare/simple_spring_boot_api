@@ -1,16 +1,16 @@
 package ge.ibsu.demo.dto;
 
-public class CustomerInfo {
+public class CustomerAddressInfo {
     private String firstName;
     private String lastName;
-    private String address;
+    private String street;
     private String city;
     private String country;
 
-    public CustomerInfo(String firstName, String lastName, String address, String city, String country) {
+    public CustomerAddressInfo(String firstName, String lastName, String street, String city, String country) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
+        this.street = street;
         this.city = city;
         this.country = country;
     }
@@ -31,12 +31,12 @@ public class CustomerInfo {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getCity() {
